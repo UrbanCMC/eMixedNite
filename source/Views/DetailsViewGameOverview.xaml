@@ -1,19 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     mc:Ignorable="d">
 
-    <Style TargetType="{x:Type DetailsViewGameOverview}">		
+    <Style TargetType="{x:Type DetailsViewGameOverview}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DetailsViewGameOverview}">
-                    <ScrollViewer Name="GameOverviewFullScrollViewer" 
-						HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" 
+                    <ScrollViewer Name="GameOverviewFullScrollViewer"
+						HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
                         Style="{DynamicResource DetailsScrollViewer}" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
                         <Grid>
-							
-							<FadeImage Source="{Binding Game.DisplayBackgroundImageObject}" Stretch="Uniform" 
+
+							<FadeImage Source="{Binding Game.DisplayBackgroundImageObject}" Stretch="Uniform"
 								HorizontalAlignment="Center" VerticalAlignment="Top" Tag="{DynamicResource ImageBackgroundFaded}"
 								Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
 								<FadeImage.ImageOpacityMask>
@@ -25,7 +25,7 @@
 									</RadialGradientBrush>
 								</FadeImage.ImageOpacityMask>
 							</FadeImage>
-						
+
 							<FadeImage Source="{Binding Game.DisplayBackgroundImageObject}" Stretch="UniformToFill"
 								HorizontalAlignment="Center" VerticalAlignment="Top" Tag="{DynamicResource ImageBackgroundFaded}"
 								Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
@@ -36,7 +36,7 @@
 									</LinearGradientBrush>
 								</FadeImage.OpacityMask>
 							</FadeImage>
-							
+
 
                             <Grid HorizontalAlignment="Stretch" Margin="0,0,20,0">
                                 <Grid.RowDefinitions>
@@ -64,7 +64,7 @@
 																	Foreground="{DynamicResource ButtonBackgroundBrush}" Name="MainCheckIcon"
 																/>
 															</Grid>
-														</Border>                                                   
+														</Border>
 														<ControlTemplate.Triggers>
 															<Trigger Property="IsMouseOver" Value="True">
 																<Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" TargetName="MainCheckIcon" />
@@ -94,19 +94,19 @@
 									</Grid>
 									<CheckBox ToolTip="Preview Configs" Name="QuickConfigsCheck" Tag="" />
 
-									<Popup IsOpen="{Binding ElementName=VideoFeedCheck,Path=IsChecked}"   
-										PlacementTarget="{Binding ElementName=VideoFeedCheck}"              
-										AllowsTransparency="True"  PopupAnimation="Slide"  
-												HorizontalOffset="{DynamicResource VideoPopupHorOfs}"  VerticalOffset="{DynamicResource VideoPopupVerOfs}">  
-											<Grid Width="{DynamicResource VideoPopupWidth}" > 
+									<Popup IsOpen="{Binding ElementName=VideoFeedCheck,Path=IsChecked}"
+										PlacementTarget="{Binding ElementName=VideoFeedCheck}"
+										AllowsTransparency="True"  PopupAnimation="Slide"
+												HorizontalOffset="{DynamicResource VideoPopupHorOfs}"  VerticalOffset="{DynamicResource VideoPopupVerOfs}">
+											<Grid Width="{DynamicResource VideoPopupWidth}" >
 												<ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Margin="4,10,10,0"
 													MinHeight="{DynamicResource VideoPopupHeight}" MaxHeight="{DynamicResource VideoPopupHeight}" />
-												<Button  Padding="0" Cursor="Hand" ToolTip="{DynamicResource LOCClose}" 
+												<Button  Padding="0" Cursor="Hand" ToolTip="{DynamicResource LOCClose}"
 													HorizontalAlignment="Right" VerticalAlignment="Top" Margin="3"
 													Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="8" Height="19" Width="19" Tag="{DynamicResource VideoShowControls}"
 													Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
-													<Button.Triggers>  
-														<EventTrigger RoutedEvent="Button.Click">  
+													<Button.Triggers>
+														<EventTrigger RoutedEvent="Button.Click">
 															<BeginStoryboard>
 																<Storyboard TargetName="VideoFeedCheck" TargetProperty="IsChecked">
 																	<BooleanAnimationUsingKeyFrames Duration="0:0:0.001">
@@ -114,14 +114,14 @@
 																	</BooleanAnimationUsingKeyFrames>
 																</Storyboard>
 															</BeginStoryboard>
-														</EventTrigger>  
+														</EventTrigger>
 													</Button.Triggers>
 												</Button>
 												<Grid  HorizontalAlignment="Left" VerticalAlignment="Top"  Tag="{DynamicResource VideoShowControls}"
 													Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
 													<Border BorderBrush="{DynamicResource TooltipBackgroundBrush}" CornerRadius="4,4,4,4" BorderThickness="2,2,2,2">
 														<StackPanel Orientation="Horizontal"
-															Background="{DynamicResource TooltipBackgroundBrush}" >																			
+															Background="{DynamicResource TooltipBackgroundBrush}" >
 															<Label Content="  " FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" Margin="2"/>
 															<TextBlock Text="{DynamicResource LOCExtra_Metadata_Loader_VideoLabel}" Margin="2"
 																Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrush}"/>
@@ -129,7 +129,7 @@
 													</Border>
 												</Grid>
 											</Grid>
-									</Popup>  
+									</Popup>
 
 									<StackPanel Orientation="Horizontal">
 										<StackPanel.Style>
@@ -152,22 +152,22 @@
 												<Setter Property="Template">
 													<Setter.Value>
 														<ControlTemplate>
-															<Border  BorderThickness="{DynamicResource BorderThickness}"                         
+															<Border  BorderThickness="{DynamicResource BorderThickness}"
 																CornerRadius="{DynamicResource ControlCornerRadius}" Style="{DynamicResource HighlightBorder}"
-																BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource ButtonBackgroundBrush}">                                                       
+																BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource ButtonBackgroundBrush}">
 																<Grid>
 																	<Label Content="{TemplateBinding Tag}" FontFamily="{StaticResource FontIcoFont}" FontSize="18"
 																		VerticalAlignment="Stretch" HorizontalAlignment="Center" Cursor="Hand"
 																		Foreground="{DynamicResource GlyphBrush}" Name="MainCheckIcon"
-																	/>                                                            
+																	/>
 																	<Label Content="" Name="CheckedIcon"
 																		FontSize="12" Margin="17,17,0,0"
-																		FontFamily="{StaticResource FontIcoFont}"                                                                     
+																		FontFamily="{StaticResource FontIcoFont}"
 																		Foreground="{DynamicResource TextBrushDark}"
 																		HorizontalAlignment="Center" VerticalAlignment="Center"
 																	/>
 																</Grid>
-															</Border>                                                   
+															</Border>
 															<ControlTemplate.Triggers>
 																<Trigger Property="IsMouseOver" Value="True">
 																	<Setter Property="Foreground" Value="{DynamicResource TextBrush}" TargetName="MainCheckIcon" />
@@ -179,24 +179,22 @@
 												</Setter>
 											</Style>
 										</StackPanel.Resources>
-										
+
 
 										<CheckBox ToolTip="Title/Logo Visibility" Name="TitleLogoCheck" Tag=""
 											IsChecked="{DynamicResource TitleLogoVisible}" />
-										<CheckBox ToolTip="Scrollbar Toggle Full/Partial" Name="ScrollbarCheck" Tag=""
-											IsChecked="{DynamicResource GameOverviewFullScroll}" />
-										<CheckBox ToolTip="Features. Toggle Position" Name="FeaturesCheck" Tag="" 
+										<CheckBox ToolTip="Features. Toggle Position" Name="FeaturesCheck" Tag=""
 											IsChecked="{DynamicResource ThFeaturesAtTop}"/>
-										<CheckBox ToolTip="Cover Outline Visible" Name="CoverOutlineCheck" Tag="" 
-											IsChecked="{DynamicResource CoverOutlineVisible}"/> 
-										<CheckBox ToolTip="HLTB Icon / Labels Visible" Name="HLTBCheck" Tag="" 
-											IsChecked="{DynamicResource HLTBLabelsVisible}"/> 
-										<CheckBox ToolTip="Achievements toggle  Compact / (Un)Locked Lists" Name="SuccesCompactCheck" Tag="" 
-											IsChecked="{DynamicResource SuccessToggleCompact}"/> 
+										<CheckBox ToolTip="Cover Outline Visible" Name="CoverOutlineCheck" Tag=""
+											IsChecked="{DynamicResource CoverOutlineVisible}"/>
+										<CheckBox ToolTip="HLTB Icon / Labels Visible" Name="HLTBCheck" Tag=""
+											IsChecked="{DynamicResource HLTBLabelsVisible}"/>
+										<CheckBox ToolTip="Achievements toggle  Compact / (Un)Locked Lists" Name="SuccesCompactCheck" Tag=""
+											IsChecked="{DynamicResource SuccessToggleCompact}"/>
 										<CheckBox ToolTip="Expanders Visibility" Name="ExpandersCheck" Tag="" />
-										<CheckBox ToolTip="Details Visibility" Name="DetailCheck"  Tag="" 
+										<CheckBox ToolTip="Details Visibility" Name="DetailCheck"  Tag=""
 											IsChecked="{DynamicResource GameDetailsVisible}"/>
-										<CheckBox ToolTip="Details Column Count" Name="DetailColumnCheck" Tag="" 
+										<CheckBox ToolTip="Details Column Count" Name="DetailColumnCheck" Tag=""
 											IsChecked="{DynamicResource GameDetailsColumnToggle}" />
 										<CheckBox ToolTip="Panel Title Separator Visibility" Name="SeparatorCheck" Tag=""
 											IsChecked="{DynamicResource PanelSeparatorVisible}" />
@@ -218,8 +216,8 @@
 												</Style.Triggers>
 											</Style>
 										</Grid.Style>
-										<Border Background="{DynamicResource WindowBackgourndBrush}" 
-											Opacity="{DynamicResource DetailPanelOpacity}" 
+										<Border Background="{DynamicResource WindowBackgourndBrush}"
+											Opacity="{DynamicResource DetailPanelOpacity}"
 											CornerRadius="{DynamicResource ControlCornerRadius}"
 										/>
 										<ItemsControl ItemsSource="{PluginSettings Plugin=LibraryManagement, Path=DataList}">
@@ -231,7 +229,7 @@
 											<ItemsControl.ItemTemplate>
 												<DataTemplate>
 													<StackPanel Width="Auto" Height="26" Orientation="Horizontal">
-														<Image Width="24" Height="18" Source="{Binding IconBitmapImage}" Stretch="UniformToFill" Margin="1,1,1,1">															
+														<Image Width="24" Height="18" Source="{Binding IconBitmapImage}" Stretch="UniformToFill" Margin="1,1,1,1">
 															<Image.Style>
 																<Style>
 																	<Setter Property="Control.ToolTip" Value="{Binding NameAssociated}" />
@@ -273,14 +271,14 @@
 																	</Style.Triggers>
 																</Style>
 															</Label.Style>
-														</Label> 
+														</Label>
 													</StackPanel>
 												</DataTemplate>
 											</ItemsControl.ItemTemplate>
 										</ItemsControl>
 									</Grid>
 								</StackPanel>
-								<Grid Grid.Row="1" 
+								<Grid Grid.Row="1"
 									HorizontalAlignment="{DynamicResource TitleHorizontalAlignment}"
 									VerticalAlignment="{DynamicResource TitleVerticalAlignment}"
 									Margin="10, 10, 10, 10" >
@@ -310,8 +308,8 @@
 											</Style>
 										</TextBlock.Style>
 									</TextBlock>
-									<Image Name="LogoImage" Grid.ZIndex="1" MaxWidth="{DynamicResource DetailsViewLogoMaxWidth}" 
-										Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant" 
+									<Image Name="LogoImage" Grid.ZIndex="1" MaxWidth="{DynamicResource DetailsViewLogoMaxWidth}"
+										Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant"
 										HorizontalAlignment="Center" VerticalAlignment="Top"
 										StretchDirection="DownOnly" Tag="{DynamicResource UseAbsoluteExtraMetadataPath}">
 										<Image.Style>
@@ -339,7 +337,7 @@
 											</Style>
 										</TextBlock.Style>
 									</TextBlock>
-									<TextBlock Text="{Binding Game.DisplayName}" TextAlignment="Center" 
+									<TextBlock Text="{Binding Game.DisplayName}" TextAlignment="Center"
 											TextWrapping="Wrap"  Foreground="{DynamicResource TextBrush}"
 											TextOptions.TextRenderingMode="Aliased" MaxWidth="320" FontSize="34">
 										<TextBlock.Style>
@@ -354,10 +352,10 @@
 										</TextBlock.Style>
 									</TextBlock>
 								</Grid>
-                                <DockPanel  Grid.Row="2" DockPanel.Dock="Top" HorizontalAlignment="Stretch">                                    
-									<Grid Margin="16,8,16,4"  Width="{Binding ElementName=Container,Path=ActualWidth}">			
-										<Border Background="{DynamicResource WindowBackgourndBrush}" 
-											Opacity="{DynamicResource DetailPanelOpacity}" 
+                                <DockPanel  Grid.Row="2" DockPanel.Dock="Top" HorizontalAlignment="Stretch">
+									<Grid Margin="16,8,16,4"  Width="{Binding ElementName=Container,Path=ActualWidth}">
+										<Border Background="{DynamicResource WindowBackgourndBrush}"
+											Opacity="{DynamicResource DetailPanelOpacity}"
 											CornerRadius="{DynamicResource ControlCornerRadius}"
 											Visibility="{Binding ElementName=eMnMainPanelToggle, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
@@ -372,8 +370,8 @@
 													<ColumnDefinition Width="Auto"/>
 													<ColumnDefinition Width="*"/>
 												</Grid.ColumnDefinitions>
-												
-												<Grid Grid.Column="0" VerticalAlignment="Center" Margin="15,12,0,12">													
+
+												<Grid Grid.Column="0" VerticalAlignment="Center" Margin="15,12,0,12">
 													<Grid.Style>
 														<Style>
 															<Setter Property="Control.Visibility" Value="Collapsed" />
@@ -386,11 +384,11 @@
 													</Grid.Style>
 
 													<Border BorderThickness="5" Margin="-5"
-														Visibility="{Binding ElementName=CoverOutlineCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" 
+														Visibility="{Binding ElementName=CoverOutlineCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
 														BorderBrush="{DynamicResource GlyphBrush}"
 														CornerRadius="{DynamicResource ControlCornerRadius}">
 													</Border>
-													<TextBlock Name="LibraryBannerPath" 
+													<TextBlock Name="LibraryBannerPath"
 														Tag="{Binding Game.Library}"  Visibility="Collapsed">
 														<TextBlock.Style>
 															<Style TargetType="TextBlock">
@@ -429,10 +427,10 @@
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
 															<Grid  Width="{Settings GridItemWidth}" Height="{DynamicResource BannersHeight}" Tag="{DynamicResource UseItmHorizontalBanner}"
 																Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
-																<Border Background="{DynamicResource ButtonBackgroundBrush}" Opacity=".9" />																
-																<Image RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both" 
+																<Border Background="{DynamicResource ButtonBackgroundBrush}" Opacity=".9" />
+																<Image RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both"
 																		Source="../Images/stores/playnite.png">
-																</Image>    
+																</Image>
 																<TextBlock FontSize="13" Margin="6,0,0,0"
 																	HorizontalAlignment="{DynamicResource TextBannerHorizontalAlignment}" VerticalAlignment="Center"
 																	Foreground="{DynamicResource GlyphBrush}" >
@@ -449,34 +447,34 @@
 																				</Style.Triggers>
 																			</Style>
 																		</TextBlock.Style>
-																</TextBlock>  
+																</TextBlock>
 																<Grid Tag="{DynamicResource UseItmImageBanners}"
 																		Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
-																	<Image Source="{Binding Game.Platforms[0].Cover, Converter={StaticResource ImageStringToImageConverter}}" 
+																	<Image Source="{Binding Game.Platforms[0].Cover, Converter={StaticResource ImageStringToImageConverter}}"
 																		RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both"  >
 																	</Image>
 																	<Image Name="HorizontalBannerSource" Tag="{DynamicResource UseItmStoreBanners}"
-																		RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both" 
+																		RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both"
 																		Source="{Binding ElementName=LibraryBannerPath, Path=Text}"
 																		Visibility="{Binding ElementName=UseItmStoreBannersCheck, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
 																	</Image>
 																</Grid>
-																<Grid 
+																<Grid
 																	Visibility="{Binding ElementName=UseItmIconBannersCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
-																	<Image  Margin="0,2,2,0" Height="20" 
+																	<Image  Margin="0,2,2,0" Height="20"
 																		HorizontalAlignment="{DynamicResource IconBannerHorizontalAlignment}" VerticalAlignment="Center"
 																		Source="{Binding Game.Platforms[0].Icon, Converter={StaticResource ImageStringToImageConverter}}"
 																		Visibility="{Binding ElementName=UseItmStoreBannersCheck, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
 																	</Image>
-																	<Image  Margin="0,2,2,0" Height="20" 
+																	<Image  Margin="0,2,2,0" Height="20"
 																		HorizontalAlignment="{DynamicResource IconBannerHorizontalAlignment}" VerticalAlignment="Center"
-																		Source="{Binding ElementName=LibraryIconPath, Path=Text}" 
+																		Source="{Binding ElementName=LibraryIconPath, Path=Text}"
 																		Visibility="{Binding ElementName=UseItmStoreBannersCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
-																	</Image>                                                
+																	</Image>
 																</Grid>
 															</Grid>
 														</Grid>
-														<StackPanel Orientation="Horizontal">                                    
+														<StackPanel Orientation="Horizontal">
 															<Grid Tag="{DynamicResource UseItmBanners}"
 																Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
 																<Grid Height="{Settings GridItemHeight}" Width ="{DynamicResource BannersHeight}"  Tag="{DynamicResource UseItmHorizontalBanner}"
@@ -504,7 +502,7 @@
 																	</TextBlock>
 																	<Grid Tag="{DynamicResource UseItmImageBanners}"
 																			Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
-																		<Image Source="{Binding Game.Platforms[0].Cover, Converter={StaticResource ImageStringToImageConverter}}" 
+																		<Image Source="{Binding Game.Platforms[0].Cover, Converter={StaticResource ImageStringToImageConverter}}"
 																				RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both" Tag="{DynamicResource UseItmStoreBanners}"
 																				Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
 																			<Image.LayoutTransform>
@@ -512,7 +510,7 @@
 																			</Image.LayoutTransform>
 																		</Image>
 																		<Image Tag="{DynamicResource UseItmStoreBanners}"
-																				RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both" 
+																				RenderOptions.BitmapScalingMode="Fant" Stretch="Fill" StretchDirection="Both"
 																				Source="{Binding ElementName=LibraryBannerPath, Path=Text}"
 																				Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
 																			<Image.LayoutTransform>
@@ -520,9 +518,9 @@
 																			</Image.LayoutTransform>
 																		</Image>
 																	</Grid>
-																	<Grid 
+																	<Grid
 																		Visibility="{Binding ElementName=UseItmIconBannersCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
-																		<Image  Margin="0,2,2,0" Height="20" 
+																		<Image  Margin="0,2,2,0" Height="20"
 																			HorizontalAlignment="Center" VerticalAlignment="{DynamicResource IconBannerVerticalAlignment}"
 																			Source="{Binding Game.Platforms[0].Icon, Converter={StaticResource ImageStringToImageConverter}}"
 																			Visibility="{Binding ElementName=UseItmStoreBannersCheck, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
@@ -530,19 +528,19 @@
 																				<RotateTransform Angle="-90" />
 																			</Image.LayoutTransform>
 																		</Image>
-																		<Image  Margin="0,2,2,0" Height="20" 
+																		<Image  Margin="0,2,2,0" Height="20"
 																			HorizontalAlignment="Center" VerticalAlignment="{DynamicResource IconBannerVerticalAlignment}"
-																			Source="{Binding ElementName=LibraryIconPath, Path=Text}" 
+																			Source="{Binding ElementName=LibraryIconPath, Path=Text}"
 																			Visibility="{Binding ElementName=UseItmStoreBannersCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
 																			<Image.LayoutTransform>
 																				<RotateTransform Angle="-90" />
 																			</Image.LayoutTransform>
-																		</Image>                                                
+																		</Image>
 																	</Grid>
 																</Grid>
 															</Grid>
 															<Grid Width="{Settings GridItemWidth}" Height="{Settings GridItemHeight}">
-																<Image x:Name="PART_ImageCover" 
+																<Image x:Name="PART_ImageCover"
 																	RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
 																	HorizontalAlignment="Center" VerticalAlignment="Center"
 																	Stretch="{Settings CoverArtStretch}" />
@@ -559,14 +557,14 @@
 														<StackPanel Orientation="Horizontal" Grid.Column="0">
 															<Button Name="PART_ButtonPlayAction" ToolTip="{DynamicResource LOCPlayAction}"
 																FontFamily="Corbel" FontSize="24" Width="150" Height="40" Cursor="Hand" />
-															<Button Name="PART_ButtonContextAction"  ToolTip="{DynamicResource LOCInstallGame}" 
-																FontFamily="Corbel" FontSize="24" Width="150" Height="40" Cursor="Hand" />											
+															<Button Name="PART_ButtonContextAction"  ToolTip="{DynamicResource LOCInstallGame}"
+																FontFamily="Corbel" FontSize="24" Width="150" Height="40" Cursor="Hand" />
 															<Button ToolTip="{DynamicResource LOCMoreAction}" x:Name="PART_ButtonMoreActions"
-																Padding="0" Width="40" Height="40" Margin="10,0,0,0" Cursor="Hand" 
+																Padding="0" Width="40" Height="40" Margin="10,0,0,0" Cursor="Hand"
 																Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="24" >
 															</Button>
 															<Button x:Name="PART_ButtonEditGame" ToolTip="{DynamicResource LOCGameEditWindowTitle}"
-																Padding="0" Width="40" Height="40" Margin="10,0,0,0" Cursor="Hand" 
+																Padding="0" Width="40" Height="40" Margin="10,0,0,0" Cursor="Hand"
 																Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="24" >
 															</Button>
 
@@ -621,10 +619,10 @@
 																		</Style.Triggers>
 																	</Style>
 																</Grid.Style>
-																<ContentControl x:Name="HowLongToBeat_PluginButton" FontSize="20" 
+																<ContentControl x:Name="HowLongToBeat_PluginButton" FontSize="20"
 																Padding="0" Width="40" Height="40" Margin="0,0,0,0" Cursor="Hand"
 																ToolTip="How Long To Beat" />
-															</Grid>																
+															</Grid>
 
 															<TextBlock Name="TtImageCount" Visibility="Collapsed"
 																Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=ListScreenshots.Count}" >
@@ -702,10 +700,10 @@
 																ToolTip="{Binding ElementName=TtAchievementsPorcent, Path=Text}" />
 															</Grid>
 														</StackPanel>
-														
+
 													</Grid>
-													
-													<Grid Margin="16,8,0,0">																
+
+													<Grid Margin="16,8,0,0">
 														<Grid.Style>
 															<Style>
 																<Setter Property="Control.Visibility" Value="Collapsed" />
@@ -729,28 +727,28 @@
 															<ColumnDefinition Width="Auto" /> <!-- 5 -->
 															<ColumnDefinition Width="*" />
 														</Grid.ColumnDefinitions>
-														
+
 														<Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" >
 															<!-- Tag="{DynamicResource UseItmBanners}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" -->
 															<Grid Name="PART_ElemLibrary" Margin="0,0,12,0">
-																<Label Content="" 
-																	FontFamily="{StaticResource FontIcoFont}" FontSize="28" 
-																	VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/> 
-																<Label Margin="24,0,0,0" Content="" 
-																	FontFamily="{StaticResource FontIcoFont}" FontSize="13" 
-																	VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="{DynamicResource TextBrush}"/> 
+																<Label Content=""
+																	FontFamily="{StaticResource FontIcoFont}" FontSize="28"
+																	VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
+																<Label Margin="24,0,0,0" Content=""
+																	FontFamily="{StaticResource FontIcoFont}" FontSize="13"
+																	VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="{DynamicResource TextBrush}"/>
 															</Grid>
 															<Grid Name="PART_ElemPlatform" Margin="0,0,12,0">
-																<Label Content="" 
-																	FontFamily="{StaticResource FontIcoFont}" FontSize="28" 
-																	VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/> 
-																<Label Margin="24,0,0,0" Content="" 
-																	FontFamily="{StaticResource FontIcoFont}" FontSize="13" 
-																	VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="{DynamicResource TextBrush}"/> 
+																<Label Content=""
+																	FontFamily="{StaticResource FontIcoFont}" FontSize="28"
+																	VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
+																<Label Margin="24,0,0,0" Content=""
+																	FontFamily="{StaticResource FontIcoFont}" FontSize="13"
+																	VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="{DynamicResource TextBrush}"/>
 															</Grid>
 														</Grid>
-														
+
 														<Grid Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" >
 															<!-- Tag="{DynamicResource UseItmBanners}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"> -->
@@ -764,12 +762,12 @@
 															<StackPanel Height="24">
 																<Grid Tag="{DynamicResource DhShowInGridView}"
                                                             		Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}">
-																	<ContentControl x:Name="DuplicateHider_ContentControl" 
+																	<ContentControl x:Name="DuplicateHider_ContentControl"
 																		HorizontalAlignment="Center"  VerticalAlignment="Center"
 																		Tag="{DynamicResource DuplicateHider_ContentControlHeader_Style}"
 																	/>
-																</Grid>																
-																<Button Name="PART_ButtonLibrary" Cursor="Hand" 
+																</Grid>
+																<Button Name="PART_ButtonLibrary" Cursor="Hand"
 																	Style="{StaticResource SimpleButton}" Foreground="{DynamicResource TextBrushDark}" />
 															</StackPanel>
 														</Grid>
@@ -790,9 +788,9 @@
 																Foreground="{DynamicResource TextBrushDark}" FontSize="18"
 																FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCLastPlayed}"></Label>
 															<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-																<TextBlock  Name="PART_TextLastActivity" VerticalAlignment="Center" 
+																<TextBlock  Name="PART_TextLastActivity" VerticalAlignment="Center"
 																	TextBlock.Foreground="{DynamicResource TextBrush}" />
-																<TextBlock Margin="6,0,0,0" Text="{PluginSettings Plugin=GameActivity, Path=LastPlaytimeSession}" 
+																<TextBlock Margin="6,0,0,0" Text="{PluginSettings Plugin=GameActivity, Path=LastPlaytimeSession}"
 																	VerticalAlignment="Center" TextBlock.Foreground="{DynamicResource TextBrush}" />
 															</StackPanel>
 														</Grid>
@@ -809,7 +807,7 @@
 
 															<Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16,0,12,0"
 																Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="24" Foreground="{DynamicResource GlyphBrush}"/>
-															
+
 															<Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left"
 																Foreground="{DynamicResource TextBrushDark}" FontSize="18"
 																FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCTimePlayed}" />
@@ -828,8 +826,8 @@
 															</Grid.ColumnDefinitions>
 
 															<Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16,0,12,0"
-																Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="24" Foreground="{DynamicResource GlyphBrush}"/> 
-														
+																Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="24" Foreground="{DynamicResource GlyphBrush}"/>
+
 															<Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left"
 																Foreground="{DynamicResource TextBrushDark}" FontSize="18" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="Status"/>
 															<Button  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -844,7 +842,7 @@
 															<Grid.ColumnDefinitions>
 																<ColumnDefinition Width="*" /> 		<!-- 0 -->
 																<ColumnDefinition Width="Auto" /> 	<!-- 1 -->
-															</Grid.ColumnDefinitions>		
+															</Grid.ColumnDefinitions>
 															<Grid.Style>
 																<Style>
 																	<Setter Property="Control.Visibility" Value="Visible" />
@@ -861,9 +859,9 @@
 
 															<Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16,0,12,0"
 																Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="27" Foreground="{DynamicResource GlyphBrush}"/>
-															
+
 															<Label Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left"
-																Foreground="{DynamicResource TextBrushDark}" FontSize="18" FontFamily="Corbel" 
+																Foreground="{DynamicResource TextBrushDark}" FontSize="18" FontFamily="Corbel"
 																Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCFeaturesLabel}" />
 															<Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,-5,0,0">
 																<ItemsControl ItemsSource="{PluginSettings Plugin=LibraryManagement, Path=DataList}">
@@ -875,7 +873,7 @@
 																	<ItemsControl.ItemTemplate>
 																		<DataTemplate>
 																			<StackPanel Width="Auto" Orientation="Horizontal">
-																				<Image Width="21" Height="19" Source="{Binding IconBitmapImage}" Stretch="Uniform" Margin="0,0,1,0">															
+																				<Image Width="21" Height="19" Source="{Binding IconBitmapImage}" Stretch="Uniform" Margin="0,0,1,0">
 																					<Image.Style>
 																						<Style>
 																							<Setter Property="Control.ToolTip" Value="{Binding NameAssociated}" />
@@ -905,7 +903,7 @@
 																							</Style.Triggers>
 																						</Style>
 																					</Label.Style>
-																				</Label> 
+																				</Label>
 																			</StackPanel>
 																		</DataTemplate>
 																	</ItemsControl.ItemTemplate>
@@ -913,9 +911,9 @@
 															</Grid>
 														</Grid>
 													</Grid>
-													
-													<CheckBox Name="HideHltbOnExpanderCheck" IsChecked="{DynamicResource HideHltbOnExpander}" Visibility="Collapsed" />													
-													<Grid Margin="16,6,0,0">		
+
+													<CheckBox Name="HideHltbOnExpanderCheck" IsChecked="{DynamicResource HideHltbOnExpander}" Visibility="Collapsed" />
+													<Grid Margin="16,6,0,0">
 														<Grid.Style>
 															<Style>
 																<Setter Property="Control.Visibility" Value="Visible" />
@@ -939,8 +937,8 @@
 																</Style.Triggers>
 															</Style>
 														</Grid.Style>
-													
-														<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="29" 
+
+														<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="29"
 															VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{DynamicResource TextBrush}"
 															Visibility="{Binding ElementName=HLTBCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" />
 														<StackPanel>
@@ -954,12 +952,12 @@
 																	</Style.Triggers>
 																</Style>
 															</StackPanel.Style>
-															<StackPanel Orientation="Horizontal" Margin="0,0,0,0" 
+															<StackPanel Orientation="Horizontal" Margin="0,0,0,0"
 																Visibility="{Binding ElementName=HLTBCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
-																<TextBlock Text="How long to beat" Margin="0,2,0,0"  VerticalAlignment="Center" 
+																<TextBlock Text="How long to beat" Margin="0,2,0,0"  VerticalAlignment="Center"
 																	Typography.Capitals="AllSmallCaps" Style="{DynamicResource BaseTextBlockStyle}"
 																	FontSize="{DynamicResource FontSizeLarge}"/>
-																
+
 																<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=MainStory}">
 																	<StackPanel.Style>
 																		<Style>
@@ -972,12 +970,12 @@
 																		</Style>
 																	</StackPanel.Style>
 
-																	<Label Content="Main: " Foreground="{DynamicResource TextBrushDark}"  
+																	<Label Content="Main: " Foreground="{DynamicResource TextBrushDark}"
 																		Margin="8,2,0,0" FontFamily="Corbel"  FontSize="12"/>
-																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}"   
+																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}"
 																		Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorFirst}"  FontFamily="Corbel"  FontSize="12" />
 																</StackPanel>
-																
+
 																<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=MainExtra}">
 																	<StackPanel.Style>
 																		<Style>
@@ -990,12 +988,12 @@
 																		</Style>
 																	</StackPanel.Style>
 
-																	<Label Content="Extras: " Foreground="{DynamicResource TextBrushDark}"  
+																	<Label Content="Extras: " Foreground="{DynamicResource TextBrushDark}"
 																		Margin="8,2,0,0" FontFamily="Corbel"  FontSize="12"/>
-																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat}"   
+																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat}"
 																		Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorSecond}"  FontFamily="Corbel"  FontSize="12" />
 																</StackPanel>
-																
+
 																<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=Completionist}">
 																	<StackPanel.Style>
 																		<Style>
@@ -1008,12 +1006,12 @@
 																		</Style>
 																	</StackPanel.Style>
 
-																	<Label Content="Completionist: " Foreground="{DynamicResource TextBrushDark}"  
+																	<Label Content="Completionist: " Foreground="{DynamicResource TextBrushDark}"
 																		Margin="8,2,0,0" FontFamily="Corbel"  FontSize="12"/>
-																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat}"   
+																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat}"
 																		Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorThird}"  FontFamily="Corbel"  FontSize="12" />
 																</StackPanel>
-																
+
 																<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=Solo}">
 																	<StackPanel.Style>
 																		<Style>
@@ -1026,11 +1024,11 @@
 																		</Style>
 																	</StackPanel.Style>
 
-																	<Label Content="Solo: " Foreground="{DynamicResource TextBrushDark}"  
+																	<Label Content="Solo: " Foreground="{DynamicResource TextBrushDark}"
 																		Margin="8,2,0,0" FontFamily="Corbel"  FontSize="12"/>
 																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat}"   FontFamily="Corbel"  FontSize="12" />
 																</StackPanel>
-																
+
 																<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=CoOp}">
 																	<StackPanel.Style>
 																		<Style>
@@ -1043,11 +1041,11 @@
 																		</Style>
 																	</StackPanel.Style>
 
-																	<Label Content="Coop: " Foreground="{DynamicResource TextBrushDark}"  
+																	<Label Content="Coop: " Foreground="{DynamicResource TextBrushDark}"
 																		Margin="8,2,0,0" FontFamily="Corbel"  FontSize="12"/>
 																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat}"   FontFamily="Corbel"  FontSize="12" />
 																</StackPanel>
-																
+
 																<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=Vs}">
 																	<StackPanel.Style>
 																		<Style>
@@ -1060,7 +1058,7 @@
 																		</Style>
 																	</StackPanel.Style>
 
-																	<Label Content="Versus: " Foreground="{DynamicResource TextBrushDark}"  
+																	<Label Content="Versus: " Foreground="{DynamicResource TextBrushDark}"
 																		Margin="8,2,0,0" FontFamily="Corbel"  FontSize="12"/>
 																	<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat}"   FontFamily="Corbel"  FontSize="12" />
 																</StackPanel>
@@ -1084,7 +1082,7 @@
 															</StackPanel>
 														</StackPanel>
 													</Grid>
-													
+
 													<Grid Margin="12,0,0,0" Height="Auto"  Width="{Binding ElementName=Container,Path=ActualWidth}">
 														<Grid.Style>
 															<Style>
@@ -1099,7 +1097,7 @@
 														<Border Background="{DynamicResource WindowBackgourndBrush}" Opacity="{DynamicResource DetailPanelLessOpacity}" />
 														<StackPanel Orientation="Horizontal">
 															<Label Margin="12,3,8,0" Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="25"
-																		VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource TextBrush}"/> 
+																		VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource TextBrush}"/>
 															<StackPanel >
 																<ItemsControl Name="PART_ItemsLinks"  Margin="2,8,0,0" VerticalAlignment="Center" Height="30" Grid.Row="0">
 																	<ItemsControl.ItemsPanel>
@@ -1114,7 +1112,7 @@
 																	</ItemsControl.ItemContainerStyle>
 																</ItemsControl>
 															</StackPanel>
-														</StackPanel>              
+														</StackPanel>
 													</Grid>
 
 													<CheckBox Name="HideSuccessOnExpanderCheck" IsChecked="{DynamicResource HideSuccessOnExpander}" Visibility="Collapsed" />
@@ -1128,7 +1126,7 @@
 																	</DataTrigger>
 																	<DataTrigger Binding="{Binding ElementName=SuccesCompactCheck, Path=IsChecked}" Value="True">
 																		<Setter Property="Control.Visibility" Value="Collapsed" />
-																	</DataTrigger>																		
+																	</DataTrigger>
 																		<DataTrigger Binding="{Binding ElementName=eMnMainPanelToggle, Path=IsChecked}" Value="False">
 																			<Setter Property="Control.Visibility" Value="Collapsed" />
 																		</DataTrigger>
@@ -1138,35 +1136,35 @@
 																			<Condition Binding="{Binding ElementName=HideSuccessOnExpanderCheck, Path=IsChecked}" Value="True" />
 																		</MultiDataTrigger.Conditions>
 																		<Setter Property="Control.Visibility" Value="Collapsed"  />
-																	</MultiDataTrigger>		
+																	</MultiDataTrigger>
 																</Style.Triggers>
 															</Style>
 														</Grid.Style>
-														
+
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="Auto"/>
 															<ColumnDefinition Width="Auto"/>
 															<ColumnDefinition Width="*" />
 															<ColumnDefinition Width="Auto"/>
 															<ColumnDefinition Width="*" />
-														</Grid.ColumnDefinitions>	
+														</Grid.ColumnDefinitions>
 
 														<Label Grid.Column="1" Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="21" Margin="14,0,12,0"
-															VerticalAlignment="Center" HorizontalAlignment="Center" 
+															VerticalAlignment="Center" HorizontalAlignment="Center"
 															ToolTip="UnLocked" Foreground="{StaticResource PositiveRatingBrush}"
-															Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked}" 
+															Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
 														/>
 														<ContentControl Grid.Column="2" x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,5,0,5" MinHeight="64" MaxHeight="64" />
 														<Label Grid.Column="3" Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="21" Margin="12,0,12,0"
-															VerticalAlignment="Center" HorizontalAlignment="Center" 
+															VerticalAlignment="Center" HorizontalAlignment="Center"
 															ToolTip="Locked" Foreground="{DynamicResource TextBrushDark}"
-															Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked}" 
+															Tag="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}"
 														/>
 														<ContentControl Grid.Column="4" x:Name="SuccessStory_PluginCompactLocked" Margin="0,5,0,5" MinHeight="64" MaxHeight="64" />
 													</Grid>
-												
+
 													<Grid  Margin="8,8,8,8">
 														<Grid.Style>
 															<Style>
@@ -1183,20 +1181,20 @@
 																	</DataTrigger>
 																	<DataTrigger Binding="{Binding ElementName=eMnMainPanelToggle, Path=IsChecked}" Value="False">
 																		<Setter Property="Control.Visibility" Value="Collapsed" />
-																	</DataTrigger>	
+																	</DataTrigger>
 																</Style.Triggers>
 															</Style>
 														</Grid.Style>
-														
+
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="Auto"/>
 															<ColumnDefinition Width="*" />
 														</Grid.ColumnDefinitions>
-															
-														<Grid Grid.Column="0" ToolTip="Achivements Locked/Unlocked">															
+
+														<Grid Grid.Column="0" ToolTip="Achivements Locked/Unlocked">
 															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="27" Margin="0,0,0,0"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
-															<TextBlock Tag="{PluginSettings Plugin=SuccessStory, Path=Percent}" 
+															<TextBlock Tag="{PluginSettings Plugin=SuccessStory, Path=Percent}"
 																Foreground="{DynamicResource PositiveRatingBrush}"
 																FontSize="11" Margin="28,45,0,0"
 															>
@@ -1214,12 +1212,12 @@
 																</TextBlock.Style>
 															</TextBlock>
 														</Grid>
-														<ContentControl Grid.Column="1" x:Name="SuccessStory_PluginCompactList" Margin="0,5,0,5" MinHeight="70" MaxHeight="70" />													
-													</Grid>					
+														<ContentControl Grid.Column="1" x:Name="SuccessStory_PluginCompactList" Margin="0,5,0,5" MinHeight="70" MaxHeight="70" />
+													</Grid>
 
 												</StackPanel>
-											</Grid>		
-											
+											</Grid>
+
 										</StackPanel>
 									</Grid>
                                 </DockPanel>
@@ -1236,11 +1234,11 @@
 													<Setter.Value>
 														<ControlTemplate TargetType="{x:Type Expander}">
 															<Grid>
-																<Border Background="{DynamicResource WindowBackgourndBrush}" 
-																	Opacity="{DynamicResource DetailPanelOpacity}" 
+																<Border Background="{DynamicResource WindowBackgourndBrush}"
+																	Opacity="{DynamicResource DetailPanelOpacity}"
 																	CornerRadius="{DynamicResource ControlCornerRadius}" />
 																<DockPanel>
-																	<ToggleButton BorderBrush="{TemplateBinding BorderBrush}" 
+																	<ToggleButton BorderBrush="{TemplateBinding BorderBrush}"
 																		BorderThickness="{TemplateBinding BorderThickness}"
 																		Style="{DynamicResource MyExpanderDownHeaderStyle}"
 																		Padding="{TemplateBinding Padding}"
@@ -1266,7 +1264,7 @@
 											</Style>
 										</StackPanel.Resources>
 
-										<StackPanel>												
+										<StackPanel>
 											<StackPanel.Style>
 												<Style TargetType="StackPanel">
 													<Setter Property="Visibility" Value="Visible" />
@@ -1282,7 +1280,7 @@
 												<Expander.Style>
 													<Style TargetType="{x:Type Expander}"  BasedOn="{StaticResource {x:Type Expander}}">
 														<Setter Property="Visibility" Value="Collapsed" />
-														<Style.Triggers>																
+														<Style.Triggers>
 															<DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationProgressBar}" Value="True">
 																<Setter Property="Visibility" Value="Visible" />
 															</DataTrigger>
@@ -1328,16 +1326,16 @@
 															</MultiDataTrigger>
 														</Style.Triggers>
 													</Style>
-												</Expander.Style>													
+												</Expander.Style>
 												<Expander.Header>
 													<StackPanel Orientation="Horizontal" >
-														<StackPanel Orientation="Horizontal" Margin="0,0,12,0" Tag="{PluginSettings Plugin=SuccessStory, Path=HasData}" 
+														<StackPanel Orientation="Horizontal" Margin="0,0,12,0" Tag="{PluginSettings Plugin=SuccessStory, Path=HasData}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" >
-															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}" 
+															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
 															<TextBlock VerticalAlignment="Center" Text=" Achievements " Typography.Capitals="SmallCaps"
-																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>	
-															
+																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>
+
 															<Label Content="{PluginSettings Plugin=SuccessStory, Path=Unlocked}" Foreground="{DynamicResource PositiveRatingBrush}"
 																Typography.Capitals="AllSmallCaps" FontSize="{DynamicResource FontSizeLarge}" VerticalAlignment="Center"/>
 															<Label Content=" / " Foreground="{DynamicResource TextBrushDark}" VerticalAlignment="Center"
@@ -1347,33 +1345,33 @@
 														</StackPanel>
 														<StackPanel Orientation="Horizontal" Margin="0,0,12,0" Tag="{PluginSettings Plugin=GameActivity, Path=HasData}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" >
-															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}" 
+															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
 															<TextBlock VerticalAlignment="Center" Text=" Activity " Typography.Capitals="SmallCaps"
-																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>	
-															
-															<Label Content="{PluginSettings Plugin=GameActivity, Path=LastDateTimeSession}" 
-																Foreground="{DynamicResource TextBrushDark}" 
+																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>
+
+															<Label Content="{PluginSettings Plugin=GameActivity, Path=LastDateTimeSession}"
+																Foreground="{DynamicResource TextBrushDark}"
 																Typography.Capitals="AllSmallCaps" FontSize="{DynamicResource FontSize}"  />
 														</StackPanel>
 														<StackPanel Orientation="Horizontal" Margin="0,0,12,0" Tag="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" >
-															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}" 
+															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
 															<TextBlock VerticalAlignment="Center" Text=" ScreenShots " Typography.Capitals="SmallCaps"
-																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>	
-															
-															<Label Content="{PluginSettings Plugin=ScreenshotsVisualizer, Path=ListScreenshots.Count}" 
-																Foreground="{DynamicResource TextBrushDark}" 
+																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>
+
+															<Label Content="{PluginSettings Plugin=ScreenshotsVisualizer, Path=ListScreenshots.Count}"
+																Foreground="{DynamicResource TextBrushDark}"
 																Typography.Capitals="AllSmallCaps" FontSize="{DynamicResource FontSize}"  />
 														</StackPanel>
 														<StackPanel Orientation="Horizontal" Tag="{PluginSettings Plugin=HowLongToBeat, Path=HasData}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" >
-															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}" 
+															<Label Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarger}"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
 															<TextBlock VerticalAlignment="Center" Text=" Hltb  " Typography.Capitals="SmallCaps"
 																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>
-														</StackPanel> 
+														</StackPanel>
 														<StackPanel Orientation="Horizontal" Tag="{PluginStatus Plugin=NewsViewer_15e03ffe-90f6-4e8e-bd4d-94514777481d, Status=Installed}"
 															Visibility="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}}" >
 															<Grid>
@@ -1387,11 +1385,11 @@
 																	<Style.Triggers>
 																		<DataTrigger Binding="{PluginSettings Plugin=NewsViewer, Path=ReviewsAvailable, FallbackValue=False}" Value="False">
 																			<Setter Property="Control.Visibility" Value="Collapsed" />
-																		</DataTrigger>		
+																		</DataTrigger>
 																	</Style.Triggers>
 																</Style>
 															</Grid.Style>
-															<Label Grid.Column="0" Content="  " FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarge}" 
+															<Label Grid.Column="0" Content="  " FontFamily="{StaticResource FontIcoFont}" FontSize="{DynamicResource FontSizeLarge}"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
 															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}" Typography.Capitals="SmallCaps"
 																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLarge}"/>
@@ -1399,7 +1397,7 @@
 														</StackPanel>
 													</StackPanel>
 												</Expander.Header>
-												<Expander.Content>												
+												<Expander.Content>
 													<StackPanel>
 														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3"
 															Visibility="{Binding ElementName=GdSeparatorCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -1452,11 +1450,11 @@
 																	</TabItem>
 																	<TabItem> <!-- 1 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content="" FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text=" TimeLine"  Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Visible" />
@@ -1474,11 +1472,11 @@
 																	</TabItem>
 																	<TabItem> <!-- 2 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content="" FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text=" UserStats"  Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Visible" />
@@ -1496,11 +1494,11 @@
 																	</TabItem>
 																	<TabItem> <!-- 3 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content="" FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text=" LastSession"  Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Visible" />
@@ -1518,11 +1516,11 @@
 																	</TabItem>
 																	<TabItem> <!-- 4 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content="" FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text=" TimeSession"  Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Visible" />
@@ -1540,11 +1538,11 @@
 																	</TabItem>
 																	<TabItem x:Name="eMnScreenShotsTab"> <!-- 5 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content="" FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text=" ScreenShots"  Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Collapsed" />
@@ -1585,9 +1583,9 @@
 																						</Style.Triggers>
 																					</Style>
 																				</Grid.Style>
-																				<ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture"  
+																				<ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture"
 																					Margin="12" MinHeight="230" MaxHeight="230" Background="{DynamicResource WindowBackgourndBrush}"/>
-																			</Grid>															
+																			</Grid>
 																			<Grid>
 																				<Grid.Style>
 																					<Style TargetType="Grid">
@@ -1607,18 +1605,18 @@
 																				</Grid.Style>
 																				<ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots"
 																					Margin="12" MinHeight="230" MaxHeight="230" Background="{DynamicResource WindowBackgourndBrush}"/>
-																			</Grid>															
+																			</Grid>
 																			<ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical"
 																				Margin="12" MinHeight="230" MaxHeight="230" Background="{DynamicResource WindowBackgourndBrush}"/>
 																		</Grid>
 																	</TabItem>
 																	<TabItem> <!-- 6 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content="" FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text=" Hltb"  Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Visible" />
@@ -1628,76 +1626,76 @@
 																				</DataTrigger>
 																				</Style.Triggers>
 																			</Style>
-																		</TabItem.Style>																			
+																		</TabItem.Style>
 																		<GridEx Margin="10,10,16,10" ColumnCount="3" StarColumns="1"
 																				RowCount="6" AutoLayoutColumns="3" Height="230">
 
 																			<GridEx.ColumnDefinitions>
-																				<ColumnDefinition Width="Auto" /> 
-																				<ColumnDefinition Width="Auto" /> 
-																				<ColumnDefinition Width="Auto" /> 
-																				<ColumnDefinition Width="Auto" /> 
-																				<ColumnDefinition Width="Auto" /> 
-																				<ColumnDefinition Width="*" /> 	
-																			</GridEx.ColumnDefinitions>	
-																			
-																			<Label Content="" FontFamily="{StaticResource FontIcoFont}" 
-																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorFirst}" 
+																				<ColumnDefinition Width="Auto" />
+																				<ColumnDefinition Width="Auto" />
+																				<ColumnDefinition Width="Auto" />
+																				<ColumnDefinition Width="Auto" />
+																				<ColumnDefinition Width="Auto" />
+																				<ColumnDefinition Width="*" />
+																			</GridEx.ColumnDefinitions>
+
+																			<Label Content="" FontFamily="{StaticResource FontIcoFont}"
+																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorFirst}"
 																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>
-																			<Label Content="Main Story" Foreground="{DynamicResource TextBrush}"  
+																			<Label Content="Main Story" Foreground="{DynamicResource TextBrush}"
 																				FontFamily="Corbel"  Typography.Capitals="SmallCaps" FontSize="{DynamicResource FontSizeLarger}"/>
-																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}"   FontFamily="Corbel"  
+																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}"   FontFamily="Corbel"
 																				FontSize="{DynamicResource FontSizeLarger}" VerticalAlignment="Center" Margin="10,6,0,0"/>
-																			
-																			<Label Content="" FontFamily="{StaticResource FontIcoFont}" 
-																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorSecond}" 
+
+																			<Label Content="" FontFamily="{StaticResource FontIcoFont}"
+																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorSecond}"
 																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>
-																			<Label Content="Extras" Foreground="{DynamicResource TextBrush}"   
+																			<Label Content="Extras" Foreground="{DynamicResource TextBrush}"
 																				FontFamily="Corbel"  Typography.Capitals="SmallCaps" FontSize="{DynamicResource FontSizeLarger}"/>
 																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat}"   FontFamily="Corbel"
 																				FontSize="{DynamicResource FontSizeLarger}" VerticalAlignment="Center" Margin="10,6,0,0"/>
 
-																			<Label Content="" FontFamily="{StaticResource FontIcoFont}" 
-																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorThird}" 
-																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>										
-																			<Label Content="Completionist" Foreground="{DynamicResource TextBrush}"   
+																			<Label Content="" FontFamily="{StaticResource FontIcoFont}"
+																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorThird}"
+																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>
+																			<Label Content="Completionist" Foreground="{DynamicResource TextBrush}"
 																				FontFamily="Corbel"  Typography.Capitals="SmallCaps" FontSize="{DynamicResource FontSizeLarger}"/>
 																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat}"   FontFamily="Corbel"
 																				FontSize="{DynamicResource FontSizeLarger}" VerticalAlignment="Center" Margin="10,6,0,0"/>
 
 																			<Label Content="" FontFamily="{StaticResource FontIcoFont}"
-																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorFirstMulti}" 
+																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorFirstMulti}"
 																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>
-																			<Label Content="Solo" Foreground="{DynamicResource TextBrush}" 
+																			<Label Content="Solo" Foreground="{DynamicResource TextBrush}"
 																				FontFamily="Corbel"  Typography.Capitals="SmallCaps" FontSize="{DynamicResource FontSizeLarger}"/>
-																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat}" 
+																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat}"
 																				FontSize="{DynamicResource FontSizeLarger}" VerticalAlignment="Center" Margin="10,6,0,0"/>
 
 																			<Label Content="" FontFamily="{StaticResource FontIcoFont}"
-																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorSecondMulti}" 
+																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorSecondMulti}"
 																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>
-																			<Label Content="Cooperative" Foreground="{DynamicResource TextBrush}"  
+																			<Label Content="Cooperative" Foreground="{DynamicResource TextBrush}"
 																				 FontFamily="Corbel"  Typography.Capitals="SmallCaps" FontSize="{DynamicResource FontSizeLarger}"/>
-																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat}"   FontFamily="Corbel"  
+																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat}"   FontFamily="Corbel"
 																				FontSize="{DynamicResource FontSizeLarger}" VerticalAlignment="Center" Margin="10,6,0,0"/>
 
 																			<Label Content="" FontFamily="{StaticResource FontIcoFont}"
-																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorThirdMulti}" 
+																				Foreground="{PluginSettings Plugin=HowLongToBeat, Path=ColorThirdMulti}"
 																				FontSize="{DynamicResource FontSizeLarger}" Margin="40,0,24,0"/>
-																			<Label Content="Versus" Foreground="{DynamicResource TextBrush}"   
+																			<Label Content="Versus" Foreground="{DynamicResource TextBrush}"
 																				FontFamily="Corbel"  Typography.Capitals="SmallCaps" FontSize="{DynamicResource FontSizeLarger}"/>
-																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat}"   FontFamily="Corbel" 
+																			<Label Content="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat}"   FontFamily="Corbel"
 																				FontSize="{DynamicResource FontSizeLarger}" VerticalAlignment="Center" Margin="10,6,0,0"/>
 																		</GridEx>
 																	</TabItem>
 																	<TabItem> <!-- 7 -->
 																		<TabItem.Header>
-																			<StackPanel Orientation="Horizontal">																			
+																			<StackPanel Orientation="Horizontal">
 																				<Label Content=" " FontFamily="{StaticResource FontIcoFont}" Foreground="{DynamicResource GlyphBrush}" />
 																				<TextBlock Text="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}"
 																					Typography.Capitals="SmallCaps" Foreground="{DynamicResource TextBrushAlt}"/>
 																			</StackPanel>
-																		</TabItem.Header>																		
+																		</TabItem.Header>
 																		<TabItem.Style>
 																			<Style TargetType="{x:Type TabItem}"  BasedOn="{StaticResource {x:Type TabItem}}">
 																				<Setter Property="Visibility" Value="Collapsed" />
@@ -1709,7 +1707,7 @@
 																			</Style>
 																		</TabItem.Style>
 																		<ContentControl x:Name="NewsViewer_NewsViewerControl" Margin="10" MinHeight="230" MaxHeight="230"/>
-																	</TabItem>																		
+																	</TabItem>
 																</TabControl>
 																<ContentControl x:Name="SuccessStory_PluginProgressBar" Margin="12,12,12,8" Height="30" />
 															</StackPanel>
@@ -1717,14 +1715,14 @@
 													</StackPanel>
 												</Expander.Content>
 											</Expander>
-											
+
 										</StackPanel>
 
-										<GridEx Margin="0,0,0,0" 
+										<GridEx Margin="0,0,0,0"
 											ColumnCount="2" StarColumns="1"
 											RowCount="38" AutoLayoutColumns="2">
-											
-											<StackPanel MinWidth="{DynamicResource DetailsLeftColumnMinWidth}">														
+
+											<StackPanel MinWidth="{DynamicResource DetailsLeftColumnMinWidth}">
 												<StackPanel.Style>
 													<Style TargetType="StackPanel">
 														<Setter Property="Visibility" Value="Collapsed" />
@@ -1740,26 +1738,26 @@
 													<Border Background="{DynamicResource WindowBackgourndBrush}" Opacity="{DynamicResource DetailPanelOpacity}" CornerRadius="{DynamicResource ControlCornerRadius}" />
 													<StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
 																Orientation="Vertical" Height="Auto" Width="Auto">
-														
+
 														<Grid Margin="8,8,0,0" HorizontalAlignment="Stretch">
 															<Grid.ColumnDefinitions>
 																<ColumnDefinition Width="36"/>
 																<ColumnDefinition Width="*" />
 															</Grid.ColumnDefinitions>
-														
+
 															<Label Grid.Column="0" Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="21" Margin="0,4,0,0"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
-															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOCGameDetails}" 
+															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOCGameDetails}"
 																Typography.Capitals="AllSmallCaps"
 																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLargest}"/>
 														</Grid>
-														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3"  
+														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3"
 																Visibility="{Binding ElementName=SeparatorCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" />
 														<StackPanel VerticalAlignment="Top">
 															<Image Name="PART_ImageIcon" Height="128" Width="128" Margin="8"
 																RenderOptions.BitmapScalingMode="Fant" />
 														</StackPanel>
-														
+
 														<GridEx HorizontalAlignment="Center"  StarColumns="1" Margin="8,8,8,8" RowCount="60">
 															<GridEx.Style>
 																<Style TargetType="GridEx">
@@ -1915,12 +1913,12 @@
 
 															<Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" />
 															<Button Name="PART_ButtonVersion" />
-															
+
 														</GridEx>
 													</StackPanel>
 												</Grid>
 											</StackPanel>
-											
+
 											<StackPanel >
 
 												<Grid Name="PART_ElemNotes" Margin="5,5,5,5">
@@ -1931,24 +1929,24 @@
 																<ColumnDefinition Width="36"/>
 																<ColumnDefinition Width="*" />
 															</Grid.ColumnDefinitions>
-														
+
 															<Label Grid.Column="0" Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="21" Margin="0,4,0,0"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
-															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOCNotesLabel}" 
+															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOCNotesLabel}"
 																Typography.Capitals="AllSmallCaps"
 																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLargest}"/>
 														</Grid>
-														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3" 
+														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3"
 															Visibility="{Binding ElementName=SeparatorCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" />
 														<TextBox Name="PART_TextNotes" IsReadOnly="True"
 															BorderThickness="0"
 															AcceptsReturn="True" TextWrapping="Wrap"
-															FontFamily="{DynamicResource FontFamily}" 
-															UseLayoutRounding="False" 
+															FontFamily="{DynamicResource FontFamily}"
+															UseLayoutRounding="False"
 															ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="8,8,8,8"/>
 													</StackPanel>
 												</Grid>
-												
+
 												<Grid  Margin="5,5,5,5">
 													<Border Background="{DynamicResource WindowBackgourndBrush}" Opacity="{DynamicResource DetailPanelOpacity}" CornerRadius="{DynamicResource ControlCornerRadius}" />
 													<StackPanel Name="PART_ElemDescription">
@@ -1957,29 +1955,29 @@
 																<ColumnDefinition Width="36"/>
 																<ColumnDefinition Width="*" />
 															</Grid.ColumnDefinitions>
-														
+
 															<Label Grid.Column="0" Content="" FontFamily="{StaticResource FontIcoFont}" FontSize="21" Margin="0,4,0,0"
 																VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource GlyphBrush}"/>
-															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOCGameDescriptionTitle}" 
+															<TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{DynamicResource LOCGameDescriptionTitle}"
 																Typography.Capitals="AllSmallCaps"
 																Style="{DynamicResource BaseTextBlockStyle}" FontSize="{DynamicResource FontSizeLargest}"/>
 														</Grid>
-														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3"  
+														<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="8,3,8,3"
 															Visibility="{Binding ElementName=SeparatorCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" />
-														<CheckBox  Name="HtmlThemeColorCheck" IsChecked="{DynamicResource UseHtmlColor}" Visibility="Collapsed" /> 
+														<CheckBox  Name="HtmlThemeColorCheck" IsChecked="{DynamicResource UseHtmlColor}" Visibility="Collapsed" />
 														<HtmlTextView x:Name="PART_HtmlDescription"
 															HtmlFontSize="{DynamicResource FontSize}"
 															HtmlFontFamily="{DynamicResource FontFamily}"
-															MinHeight="64" FontSize="{DynamicResource FontSize}" 
-															FontFamily="{DynamicResource FontFamily}" 
-															UseLayoutRounding="False" 
+															MinHeight="64" FontSize="{DynamicResource FontSize}"
+															FontFamily="{DynamicResource FontFamily}"
+															UseLayoutRounding="False"
 															ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="8,10,8,8">
 															<HtmlTextView.Style>
 																<Style TargetType="HtmlTextView">
 																	<Setter Property="HtmlForeground" Value="{DynamicResource HtmlTextColor}" />
 																	<Setter Property="LinkForeground" Value="{DynamicResource HtmlLinkColor}" />
-																	<Style.Triggers>																				
-																		<DataTrigger Binding="{Binding ElementName=HtmlThemeColorCheck, Path=IsChecked}" Value="True">	
+																	<Style.Triggers>
+																		<DataTrigger Binding="{Binding ElementName=HtmlThemeColorCheck, Path=IsChecked}" Value="True">
 																			<Setter Property="HtmlForeground" Value="{DynamicResource TextColor}" />
 																			<Setter Property="LinkForeground" Value="{DynamicResource GlyphColor}" />
 																		</DataTrigger>
@@ -1990,20 +1988,12 @@
 													</StackPanel>
 												</Grid>
 											</StackPanel>
-										</GridEx>   
-									</StackPanel>  
+										</GridEx>
+									</StackPanel>
 								</Grid>
                             </Grid>
                         </Grid>
                     </ScrollViewer>
-					<ControlTemplate.Triggers>
-						<DataTrigger Binding="{Binding ElementName=ScrollbarCheck, Path=IsChecked}" Value="True">
-							<Setter Property="VerticalScrollBarVisibility" Value="Auto" TargetName="GameOverviewFullScrollViewer" />
-						</DataTrigger>
-						<DataTrigger Binding="{Binding ElementName=ScrollbarCheck, Path=IsChecked}" Value="False">
-							<Setter Property="VerticalScrollBarVisibility" Value="Disabled" TargetName="GameOverviewFullScrollViewer" />
-						</DataTrigger>
-					</ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -2022,7 +2012,7 @@
                                 Playnite.SDK.Models.Game Game;
                                 Boolean IsCurrent;  // True if this copy eqal to the current GameContext property.
                                 BitmapImage Icon;   // Source Icon
-                                String SourceName;  // Source name. Use this rather than Game.Source.Name, 
+                                String SourceName;  // Source name. Use this rather than Game.Source.Name,
                                                     // because Source might be null.
                                 ICommand LaunchCommand;
                                 ICommand SelectCommand;
@@ -2044,9 +2034,9 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Grid ClipToBounds="True">
-                                        <Border 
-                                            x:Name="_ItemBorder" 
-                                            Background="Transparent" 
+                                        <Border
+                                            x:Name="_ItemBorder"
+                                            Background="Transparent"
                                             BorderThickness="0"
                                             OpacityMask="{DynamicResource BottomFadingBrush}"
                                             Margin="0,0,0,2"/>
@@ -2169,16 +2159,16 @@
 								<ColumnDefinition Width="*" />
 								<ColumnDefinition Width="Auto" />
 							</Grid.ColumnDefinitions>
-							<TextBlock Text=" " x:Name="UpArrow" 
+							<TextBlock Text=" " x:Name="UpArrow"
 									VerticalAlignment="Center" HorizontalAlignment="Left"
-									Style="{DynamicResource BaseTextBlockStyle}" FontFamily="{StaticResource FontIcoFont}" 
-									Foreground="{DynamicResource TextBrushDark}" FontSize="18" MinWidth="20" 
+									Style="{DynamicResource BaseTextBlockStyle}" FontFamily="{StaticResource FontIcoFont}"
+									Foreground="{DynamicResource TextBrushDark}" FontSize="18" MinWidth="20"
 									FontWeight="Bold" Margin="2,0,2,0"
 									Grid.Column="1" TextAlignment="Center" />
-							<TextBlock Text=" " x:Name="DownArrow" 
+							<TextBlock Text=" " x:Name="DownArrow"
 									VerticalAlignment="Center" HorizontalAlignment="Left"
-									Style="{DynamicResource BaseTextBlockStyle}" FontFamily="{StaticResource FontIcoFont}" 
-									Foreground="{DynamicResource TextBrushDark}" FontSize="18" MinWidth="20" 
+									Style="{DynamicResource BaseTextBlockStyle}" FontFamily="{StaticResource FontIcoFont}"
+									Foreground="{DynamicResource TextBrushDark}" FontSize="18" MinWidth="20"
 									FontWeight="Bold" Margin="2,0,2,0"
 									Visibility="Collapsed"
 									Grid.Column="1" TextAlignment="Center"/>

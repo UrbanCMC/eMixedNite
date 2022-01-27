@@ -2,7 +2,6 @@ Constants:
   - "General"
   - eMnMainPanelExpanded: Toggle Main panel expanded / Only the buttons visible.
   - ImageBackgroundFaded: Use Image Background partially faded
-  - GameOverviewFullScroll: Enable Game Overview Full Scroll
   - ThFeaturesAtTop: ThemeModifier Features at top
   - DetailsViewLogoMaxWidth(56,400): Details View Logo Max Width
   - GridViewLogoMaxWidth(56,500): Grid View Logo Max Width
@@ -47,7 +46,7 @@ Constants:
   - "Deatail List Items"
   - DetailViewListOpacity(0.0,0.9): Detail list background opacity
   - DeatailListMultiLineName: Multiline name instead single line
-  - DeatailListInfoVisible: Information visible  
+  - DeatailListInfoVisible: Information visible
   - DeatailListFullInfo: Full info instead of single status icon
   - "Grid Items"
   - GridViewListOpacity(0.0,0.9): Grid list background opacity
